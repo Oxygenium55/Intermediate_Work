@@ -1,3 +1,4 @@
+from datetime import datetime, date
 notebook = []
 path = 'notes.json'
 
@@ -27,6 +28,7 @@ def open_file():
         file = data.readlines()
     for note in file:
         notebook.append(note.strip().split(';'))
+        #note[-1] = datetime.strptime(note[-1], '%Y-%m-%D %H:%M')
     print(notebook)
 
 def add_new_note(new_note: list):
@@ -61,3 +63,7 @@ def edit_note(index: int, new: list):
     notebook[index][0] = new[0] if new[0] != '' else notebook[index][0]
     notebook[index][1] = new[1] if new[1] != '' else notebook[index][1]
     notebook[index][2] = new[2] if new[2] != '' else notebook[index][2]
+
+def filter_note_by_date(dt: date):
+    global notebook
+    return [note for note in notebook if datetime.strptime(note[-1], '%Y-%m-%d %H:%M').date() == dt]

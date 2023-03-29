@@ -3,7 +3,7 @@ import model as m
 
 def start():
     choice = ''
-    while choice != 8:
+    while choice != 9:
         choice = v.main_menu()
         match choice:
             case 1:
@@ -41,5 +41,9 @@ def start():
                 result = m.search_note(find)
                 v.show_notes(result)
             case 8:
+                dt = input('Введите дату: ')
+                notes = m.filter_note_by_date(dt)
+                v.show_notes(notes)
+            case 9:
                 v.end_program()
                 break

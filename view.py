@@ -7,6 +7,7 @@ commands = ['Открыть файл',
             'Удалить заметку',
             'Изменить заметку',
             'Найти заметку',
+            'Фильтровать по дате',
             'Выход из программы']
 
 def main_menu() -> int:
@@ -16,10 +17,10 @@ def main_menu() -> int:
     while True:
         try:
             choice = int(input('Выберите пункт меню: '))
-            if 0 < choice < 9:
+            if 0 < choice < 10:
                 return choice
             else:
-                print('Введите значение от 1 до 8')
+                print('Введите значение от 1 до 9')
         except ValueError:
             print('Введите корректное значение: ')
 
@@ -71,3 +72,4 @@ def delete_confirm(note: str):
 
 def end_program():
     print('Программа завершена. До новых встреч!')
+
