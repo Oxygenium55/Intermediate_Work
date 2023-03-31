@@ -64,6 +64,3 @@ def edit_note(index: int, new: list):
     notebook[index][1] = new[1] if new[1] != '' else notebook[index][1]
     notebook[index][2] = new[2] if new[2] != '' else notebook[index][2]
 
-def filter_note_by_date(dt: date):
-    global notebook
-    return [note for note in notebook if datetime.strptime(note[-1], '%Y-%m-%d %H:%M').date() == dt]

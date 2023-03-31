@@ -6,8 +6,7 @@ commands = ['Открыть файл',
             'Создать заметку',
             'Удалить заметку',
             'Изменить заметку',
-            'Найти заметку',
-            'Фильтровать по дате',
+            'Найти по дате',
             'Выход из программы']
 
 def main_menu() -> int:
@@ -17,10 +16,10 @@ def main_menu() -> int:
     while True:
         try:
             choice = int(input('Выберите пункт меню: '))
-            if 0 < choice < 10:
+            if 0 < choice < 9:
                 return choice
             else:
-                print('Введите значение от 1 до 9')
+                print('Введите значение от 1 до 8')
         except ValueError:
             print('Введите корректное значение: ')
 
@@ -49,7 +48,7 @@ def create_new_note():
     return title, message, now
 
 def find_note():
-    find = input('Введите искомый элемент: ')
+    find = input('Введите дату (в формате гггг-мм-дд): ')
     return find
 
 def select_note(message: str):
